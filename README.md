@@ -14,6 +14,20 @@ Main class.
 * Fire - Press **SPACE** to fire missiles
 * Pause/Continue - to pause/continue the game press **ESC**
 
+## GitHub Classroom Assignments
+
+### Java Basics
+1. Create a new alien
+    * Extend the existing abstract class Alien
+    * Use a different image for the new alien
+    * Add the alien to the board (modify the *GameBoard.initAliens* method)
+    * Make sure the other types of aliens are also added
+2. Make the newly created alien move horizontally in the board
+   * Override the *move* method
+   * Make sure the alien does not disappear from the board (check boundaries)
+3. *(Optional) Enable the alien to fire missiles*
+
+   
 
 **Special thanks to**:
 kalface@gmail.com,

@@ -271,6 +271,8 @@ public class GameBoard extends JPanel implements ActionListener {
    * Triggers spaceship navigation with the keyboard
    * <p>
    * Arrows control the user spaceship, SPACE can be used to fire missiles
+   * <p>
+   * ESC pauses/continues the game
    */
   private class KeyboardNavigationAdapter extends KeyAdapter {
 
@@ -281,6 +283,14 @@ public class GameBoard extends JPanel implements ActionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+      if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        if (timer.isRunning()) {
+          timer.stop();
+        } else {
+          timer.start();
+        }
+        return;
+      }
       spaceship.keyPressed(e);
     }
   }

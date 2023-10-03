@@ -4,7 +4,20 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
-public class Sprite {
+/**
+ * Basic class to display an image on the board
+ * <p>
+ * The only properties needed are:
+ * <p>
+ *  - x position
+ * <p>
+ *  - y position
+ * <p>
+ *  - image to display (pass the image path as string)
+ *
+ * @author Martin Dobrev
+ */
+public abstract class Sprite {
 
   protected int x;
   protected int y;
@@ -13,21 +26,21 @@ public class Sprite {
   protected boolean visible;
   protected Image image;
 
-  public Sprite(int x, int y) {
+  protected String imageUrl;
 
+  public Sprite(int x, int y, String imageUrl) {
     this.x = x;
     this.y = y;
+    this.imageUrl = imageUrl;
     visible = true;
+    loadImage();
   }
 
-  protected void getImageDimensions() {
+  private void loadImage() {
+    ImageIcon ii = new ImageIcon(imageUrl);
+    image = ii.getImage();
     width = image.getWidth(null);
     height = image.getHeight(null);
-  }
-
-  protected void loadImage(String imageName) {
-    ImageIcon ii = new ImageIcon(imageName);
-    image = ii.getImage();
   }
 
   public Image getImage() {
@@ -46,7 +59,7 @@ public class Sprite {
     return visible;
   }
 
-  public void setVisible(Boolean visible) {
+  public void setVisible(boolean visible) {
     this.visible = visible;
   }
 

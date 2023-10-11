@@ -1,4 +1,4 @@
-import org.codingburgas.oop.shooter.GameBoard;
+package org.codingburgas.oop.shooter;
 
 import javax.swing.*;
 import java.awt.*;

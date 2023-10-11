@@ -41,7 +41,8 @@ public class GameBoard extends JPanel implements ActionListener {
    */
   public GameBoard() {
     final Random r = new Random();
-    int numberEnemies = r.nextInt(30, 60);
+    // int numberEnemies = r.nextInt(30, 60);
+    int numberEnemies = r.nextInt(2, 4);
     pos = new int[numberEnemies][2];
     for (int i = 0; i < numberEnemies; i++) {
       int[] pair = new int[]{

@@ -2,6 +2,7 @@ package org.codingburgas.oop.shooter;
 
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.net.URL;
 import javax.swing.ImageIcon;
 
 /**
@@ -37,7 +38,8 @@ public abstract class Sprite {
   }
 
   private void loadImage() {
-    ImageIcon ii = new ImageIcon(imageUrl);
+    URL url = getClass().getClassLoader().getResource(imageUrl);
+    ImageIcon ii = new ImageIcon(url);
     image = ii.getImage();
     width = image.getWidth(null);
     height = image.getHeight(null);

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class SpaceShip extends Sprite {
 
-  private final static String SPACESHIP_IMAGE_URL = "src/resources/player_ship1.png";
+  private final static String SPACESHIP_IMAGE_URL = "player_ship1.png";
   private int dx;
   private int dy;
 

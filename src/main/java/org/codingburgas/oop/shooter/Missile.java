@@ -12,7 +12,7 @@ public class Missile extends Sprite {
   private final int MISSILE_SPEED = 2;
 
   public Missile(int x, int y) {
-    super(x, y, "src/resources/laser1.png");
+    super(x, y, "laser1.png");
   }
 
   public void move() {

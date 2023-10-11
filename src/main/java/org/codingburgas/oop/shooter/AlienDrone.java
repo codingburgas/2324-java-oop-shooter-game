@@ -14,7 +14,7 @@ import java.awt.*;
  */
 public class AlienDrone extends Alien {
 
-  private static final String DRONE_IMAGE_URL = "src/resources/Drakir_Race/Spaceships/drone-1.png";
+  private static final String DRONE_IMAGE_URL = "Drakir_Race/Spaceships/drone-1.png";
 
   private final IAnimator animator;
 

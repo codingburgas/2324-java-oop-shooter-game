@@ -9,7 +9,7 @@ package org.codingburgas.oop.shooter;
  */
 public class AlienFighter extends Alien {
 
-  private static final String FIGHTER_IMAGE_URL = "src/resources/Drakir_Race/Spaceships/fighter-a-1.png";
+  private static final String FIGHTER_IMAGE_URL = "Drakir_Race/Spaceships/fighter-a-1.png";
 
   public AlienFighter(int x, int y) {
     super(x, y, FIGHTER_IMAGE_URL);

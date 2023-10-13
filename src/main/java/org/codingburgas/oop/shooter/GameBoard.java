@@ -1,5 +1,7 @@
 package org.codingburgas.oop.shooter;
 
+import org.codingburgas.oop.shooter.animation.SimpleHorizontalAnimator;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -81,14 +83,15 @@ public class GameBoard extends JPanel implements ActionListener {
 
   public void initAliens() {
     aliens = new ArrayList<>();
-    var random = new Random();
-    for (int[] p : pos) {
-      if (random.nextBoolean()) {
-        aliens.add(new AlienDrone(p[0], p[1]));
-      } else {
-        aliens.add(new AlienFighter(p[0], p[1]));
-      }
-    }
+    aliens.add(new AlienDrone(300, -10));
+//    var random = new Random();
+//    for (int[] p : pos) {
+//      if (random.nextBoolean()) {
+//        aliens.add(new AlienDrone(p[0], p[1]));
+//      } else {
+//        aliens.add(new AlienFighter(p[0], p[1]));
+//      }
+//    }
   }
 
   /**
@@ -224,6 +227,12 @@ public class GameBoard extends JPanel implements ActionListener {
     List<Alien> aliensToRemove = new ArrayList<>();
     for (Alien a : aliens) {
       if (a.isVisible()) {
+        if (a instanceof AlienDrone && a.getY() > 350) {
+          AlienDrone alienDrone = (AlienDrone) a;
+          if (!(alienDrone.getAnimator() instanceof SimpleHorizontalAnimator)) {
+            alienDrone.setAnimator(new SimpleHorizontalAnimator(2));
+          }
+        }
         a.move();
       } else {
         aliensToRemove.add(a);

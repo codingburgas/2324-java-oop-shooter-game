@@ -31,7 +31,7 @@ public class SimpleVerticalAnimator implements IAnimator {
     if (previousPosition.y > GameBoard.BOARD_HEIGHT) {
       nextPosition.y = -20;
     } else {
-      nextPosition.y =+ velocity;
+      nextPosition.y += velocity;
     }
     return nextPosition;
   }

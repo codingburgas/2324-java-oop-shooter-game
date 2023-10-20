@@ -1,6 +1,9 @@
 package org.codingburgas.oop.shooter;
 
+import org.codingburgas.oop.shooter.animation.ComplexAnimator;
+import org.codingburgas.oop.shooter.animation.ComplexAnimatorBadExample;
 import org.codingburgas.oop.shooter.animation.SimpleHorizontalAnimator;
+import org.codingburgas.oop.shooter.animation.SimpleVerticalAnimator;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -83,7 +86,7 @@ public class GameBoard extends JPanel implements ActionListener {
 
   public void initAliens() {
     aliens = new ArrayList<>();
-    aliens.add(new AlienDrone(300, -10));
+    aliens.add(new AlienDrone(300, -10, new ComplexAnimatorBadExample(2)));
 //    var random = new Random();
 //    for (int[] p : pos) {
 //      if (random.nextBoolean()) {
@@ -227,12 +230,12 @@ public class GameBoard extends JPanel implements ActionListener {
     List<Alien> aliensToRemove = new ArrayList<>();
     for (Alien a : aliens) {
       if (a.isVisible()) {
-        if (a instanceof AlienDrone && a.getY() > 350) {
-          AlienDrone alienDrone = (AlienDrone) a;
-          if (!(alienDrone.getAnimator() instanceof SimpleHorizontalAnimator)) {
-            alienDrone.setAnimator(new SimpleHorizontalAnimator(2));
-          }
-        }
+//        if (a instanceof AlienDrone && a.getY() > 350) {
+//          AlienDrone alienDrone = (AlienDrone) a;
+//          if (!(alienDrone.getAnimator() instanceof SimpleHorizontalAnimator)) {
+//            alienDrone.setAnimator(new SimpleHorizontalAnimator(2));
+//          }
+//        }
         a.move();
       } else {
         aliensToRemove.add(a);

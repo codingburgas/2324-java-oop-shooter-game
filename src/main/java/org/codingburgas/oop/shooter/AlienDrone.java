@@ -19,9 +19,10 @@ public class AlienDrone extends Alien {
 
   private IAnimator animator;
 
-  public AlienDrone(int x, int y) {
+  public AlienDrone(int x, int y, IAnimator animator) {
     super(x, y, DRONE_IMAGE_URL);
-    animator = new AcceleratedVerticalAnimator();
+    this.animator = animator;
+    //animator = new AcceleratedVerticalAnimator();
   }
 
   @Override

@@ -25,6 +25,9 @@ out/
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+# Sonar files
+.idea/sonarlint/**
+
 
 ### Eclipse ###
 .apt_generated

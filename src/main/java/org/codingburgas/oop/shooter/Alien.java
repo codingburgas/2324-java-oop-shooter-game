@@ -12,6 +12,8 @@ package org.codingburgas.oop.shooter;
  */
 public abstract class Alien extends Sprite {
 
+  private int health;
+
   public Alien(int x, int y, String imageUrl) {
     super(x, y, imageUrl);
   }
@@ -21,5 +23,18 @@ public abstract class Alien extends Sprite {
       y = -10;
     }
     y += 1;
+  }
+
+  public int getHealth() {
+    return health;
+  }
+
+  public void setHealth(int health) {
+    this.health = health;
+  }
+
+  public boolean takeDamage(int damage) {
+    health = health - damage;
+    return health > 0;
   }
 }

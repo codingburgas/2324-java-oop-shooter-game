@@ -21,9 +21,12 @@ public class SpaceShip extends Sprite {
   private final int speed;
   private final List<Missile> missiles = new ArrayList<>();
 
+  private int health;
+
   public SpaceShip(int x, int y, int speed) {
     super(x, y, SPACESHIP_IMAGE_URL);
     this.speed = speed;
+    this.health = 100;
   }
 
   public void move() {
@@ -90,5 +93,18 @@ public class SpaceShip extends Sprite {
       case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> dx = 0;
       case KeyEvent.VK_UP, KeyEvent.VK_DOWN -> dy = 0;
     }
+  }
+
+  public int getHealth() {
+    return health;
+  }
+
+  public void setHealth(int health) {
+    this.health = health;
+  }
+
+  public boolean takeDamage(int damage) {
+    health = health - damage;
+    return health > 0;
   }
 }

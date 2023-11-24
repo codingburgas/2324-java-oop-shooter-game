@@ -13,5 +13,6 @@ public class AlienFighter extends Alien {
 
   public AlienFighter(int x, int y) {
     super(x, y, FIGHTER_IMAGE_URL);
+    this.setHealth(30);
   }
 }

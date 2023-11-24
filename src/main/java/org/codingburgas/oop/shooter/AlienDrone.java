@@ -22,6 +22,7 @@ public class AlienDrone extends Alien {
   public AlienDrone(int x, int y, IAnimator animator) {
     super(x, y, DRONE_IMAGE_URL);
     this.animator = animator;
+    this.setHealth(50);
     //animator = new AcceleratedVerticalAnimator();
   }
 

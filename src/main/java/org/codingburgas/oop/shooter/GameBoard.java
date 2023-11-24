@@ -10,6 +10,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -25,6 +26,8 @@ import javax.swing.Timer;
  * @author Martin Dobrev
  */
 public class GameBoard extends JPanel implements ActionListener {
+
+  private final static Logger LOGGER = Logger.getLogger(GameBoard.class.getName());
 
   private Timer timer;
   private SpaceShip spaceship;
@@ -87,6 +90,9 @@ public class GameBoard extends JPanel implements ActionListener {
   public void initAliens() {
     aliens = new ArrayList<>();
     aliens.add(new AlienDrone(300, -10, new ComplexAnimatorBadExample(2)));
+    aliens.add(new AlienFighter(100, -100));
+    aliens.add(new AlienFighter(100, -100));
+    aliens.add(new AlienFighter(100, -100));
 //    var random = new Random();
 //    for (int[] p : pos) {
 //      if (random.nextBoolean()) {
@@ -259,9 +265,15 @@ public class GameBoard extends JPanel implements ActionListener {
     for (Alien alien : aliens) {
       Rectangle r2 = alien.getBounds();
       if (r3.intersects(r2)) {
-        spaceship.setVisible(false);
-        alien.setVisible(false);
-        inGame = false;
+        final int alienDamage = alien.getHealth();
+        final int spaceShipDamage = spaceship.getHealth();
+        final boolean isAlienAlive = alien.takeDamage(spaceShipDamage);
+        final boolean isSpaceshipAlive = spaceship.takeDamage(alienDamage);
+        alien.setVisible(isAlienAlive);
+        System.out.println(String.format("Alien vs Spaceship intersection: alien health: %d, spaceship health: %d, alien alive: %b, spaceship alive: %b",
+            alien.getHealth(), spaceship.getHealth(), isSpaceshipAlive, isSpaceshipAlive));
+        spaceship.setVisible(isSpaceshipAlive);
+        inGame = isSpaceshipAlive;
       }
     }
 
